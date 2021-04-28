@@ -1,0 +1,48 @@
+//WITH PROCEDURE
+PROCEDURE dot_product (v1 : ARRAY_OF FLOAT,v2 : ARRAY_OF FLOAT, VAR ps : FLOAT) 
+VAR
+    i,j :INTEGER;
+BEGIN
+   FOR i FROM 0 TO v1.length-1 STEP step  DO
+       FOR j FROM 0 TO v2.length-1 STEP step  DO
+           ps := ps + v1[i]*v2[j]
+       END_FOR
+   END_FOR 
+   Write(ps);
+END
+ALGORITHM check_the_orthogonality
+VAR
+    n : ARRAY_OF FLOAT;
+BEGIN
+    IF (dot_product(n)==0) THEN
+        write(" The two vectors are orthogonal")
+        ELSE
+        write(" The two vectors are not orthogonal");
+    END_IF
+END
+//WITH FUNCTION
+FUNCTION dot_product (v1 : ARRAY_OF FLOAT,v2 : ARRAY_OF FLOAT,ps : FLOAT) : BOOLEAN
+VAR
+    i,j :INTEGER;
+BEGIN
+   FOR i FROM 0 TO v1.length-1 STEP step  DO
+       FOR j FROM 0 TO v2.length-1 STEP step  DO
+           ps := ps + v1[i]*v2[j]
+       END_FOR
+   END_FOR 
+    IF (ps==0) THEN
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    END_IF
+END
+ALGORITHM check_the_orthogonality
+VAR
+    n : ARRAY_OF FLOAT;
+BEGIN
+    IF (dot_product(n)== TRUE) THEN
+        write(" The two vectors are orthogonal")
+        ELSE
+        write(" The two vectors are not orthogonal");
+    END_IF
+END
